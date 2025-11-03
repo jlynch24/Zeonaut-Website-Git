@@ -1,0 +1,73 @@
+body {
+    background-color: #180137ff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* The Main Page */
+
+.title {
+    font-size: 50px;
+    text-align: center;
+    background-color: purple;
+    color:#f3952a;
+    letter-spacing: 15px;
+    font-family: Garamond;
+}
+
+.link-container {
+    margin-top: 30px;
+	margin-bottom: 30px;
+    text-align: center;
+    background-color: purple;
+    padding: 20px;
+}
+
+.link {
+    font-size: 20px;
+    margin-right: 2%;
+    text-align: center;
+    background-color: #f3952a;
+    padding: 10px;
+}
+
+/* Link Colors */
+
+a {
+    color: purple;
+}
+
+a:visited {
+    color: orangered;
+}
+
+
+/* Main Box */
+
+.pitchBox {
+    font-size: 15px;
+    background-color: #f3952a;
+    text-align: center;
+    padding: 50px 50px;
+}
+
+/* The Positioning */
+
+.position {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    gap: 20px;
+    padding: 20px;
+}
+
+.box {
+    font-size: 24px;
+    background-color: #f3952a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

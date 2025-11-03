@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuonaut TTRPG - Log In</title>
+    <link rel="stylesheet" href="client\css\index.css">
+</head>
+<body>
+    <main>
+        <section> <!--holds title and links-->
+            <div class="title">Zuonaut</div>
+            <div class="link-container"> 
+                <a class="link" href="client\genPages\index.html">Main</a>
+                <a class="link" href="client\genPages\rules.html">Rules</a>
+                <a class="link" href="client\genPages\lore.html">Lore</a>
+                <a class="link" href="client\genPages\signup.html">Sign Up</a>
+                <a class="link" href="client\genPages\login.html">Log In</a>
+                <a class="link" href="client\genPages\ccmenu.html">Character Creation</a>
+                <a class="link" href="https://simple.wikipedia.org/wiki/Pufferfish" target="_blank">Pufferfish</a>
+            </div>
+        </section>
+        <section>   <!--Log In-->
+            <h2>Log back in!</h2>
+            <form id="login">
+            <br>
+            
+            <h2>Email:</h2>
+            <input type="email" id="email" required>
+            <br><br>
+
+            <h2>Password:</h2>
+            <input type="password" id="password" required>
+            <br><br>
+
+            <button type="registrationButton">Log In</button>
+            </form>
+            <p id="message"></p>
+
+            <script src="login.js"></script>
+        </section>
+    </main>
+</body>
+</html>
