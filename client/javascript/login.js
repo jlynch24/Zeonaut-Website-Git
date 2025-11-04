@@ -1,24 +1,15 @@
-//This page will log the information taken from signup.html into the database 
-// (when I can connect the database)
+//When the button is pressed
+document.getElementById("login").addEventListener("submit", async (e) => {
 
-//Add a listener so that when the user clicks the submit button it dose something.
-document.getElementById("registerForm").addEventListener("submit", async (e) => {
-    
+    //Get the values user inputted.
     const collectedData = {
         email: document.getElementById("email").value,
-        username: document.getElementById("username").value,
         password: document.getElementById("password").value
     };
 
-    // Send it to the server with post as a JSON object.
-    const response = await fetch("/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(data)
-    });
-
-    //After sign in, send the user to login.
+    //After log in, send the user to main page, hopefully now signed in.
     if(response.ok) {
-        window.location.href = "client\genPages\signup.html";
+        window.location.href = "client\genPages\index.html";
     }
+
 });
