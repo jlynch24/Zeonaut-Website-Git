@@ -24,6 +24,8 @@ var router = require("./router.js");
 router(app);
 
 //Service listeners
+var services = require("./services.js");
+services(app);
 
 //The actual webserver.
 server = app.listen(port, function(err){

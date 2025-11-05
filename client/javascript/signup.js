@@ -11,6 +11,7 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
     };
 
     // Send it to the server.
+    fetch
 
     //After sign in, send the user to login.
     if(response.ok) {
