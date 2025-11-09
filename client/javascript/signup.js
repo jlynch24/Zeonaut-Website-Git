@@ -16,18 +16,18 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
     fetch("http://localhost:5001/signup", { //Fetch the data from the page.
         //Make it post, link it to server, pack into a json object
         method: "POST", //Make this a POST fetch
-        headers: "application/json",    
+        headers: { "Content-Typr": "application/json"},    
         body: JSON.stringify(collectedData),
     })
     .then(data => {
-        if(!response.ok) {
+        if(!response.ok) { //If it isn't working, tell me!
             throw new Error("signup.js is not working!")
         }
             return response.json();
     })
-
-    //After sign in, send the user to login.
-    if(response.ok) {
-        window.location.href = "client\genPages\signup.html";
-    }
+    .then(data => { //After sign in, send the user to login.
+        if (data) {
+            window.location.href = "client\genPages\signup.html";
+        }
+    })
 });
