@@ -14,7 +14,7 @@ app.use(function(req, res, next){
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use("/client", express.static(path.resolve(__dirname + "/../client/")));
+app.use("/client", express.static(path.resolve(__dirname + "/../client/"))); //Oversee
 
 //Server
 var port = 5001;
