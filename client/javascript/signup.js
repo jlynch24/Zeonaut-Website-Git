@@ -4,20 +4,31 @@
 console.log("file loaded");
 //Add a listener so that when the user clicks the submit button it dose something.
 //document.getElementById("signUpButton").addEventListener("click", function(e) {
-function signup() { 
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("signUpButton").addEventListener("click", function(e) {
+    
     console.log("button clicked");
+
     //Collected the data and prepare it to be shipped
-    const playerData = {
-        email: document.getElementById("email").value,
-        username: document.getElementById("username").value,
-        password: document.getElementById("password").value
+    const email = document.getElementById("email").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+
+    const collectedData = {
+        email: email,
+        username: username,
+        password: password
     };
 
-/* Convert to system
-    if(!name || !author || !type || !level || !text) {
+    console.log("Objects packed");
+
+    if(!email || !username || !password) {
     alert("Please fill in all fields before submiting");
     return;
-} */
+} 
+
+    console.log("Validators running")
 
     //Link servers! Link!
     // Send it to the server.
@@ -29,18 +40,21 @@ function signup() {
     })
     .then(response => {
         console.log("Checking to see if the data is working.")
-        if(!response.ok) { //If it isn't working, tell me!
-            throw new Error("signup.js is not working!")
-        }
+        // if(!response.ok) { //If it isn't working, tell me!
+        //     throw new Error("signup.js is not working!")
+        // }
             return response.json();
     })
-    .then(data => { 
+    .then(data => { //Return Success if backend is working.
         if(data.msg === "SUCCESS") {
             alert("YAy");
+        } else {
+            alert("Error: " + data.msg); //Explains what is wrong with data.
         }
     })
     .catch(error => {
         alert("Error: " + error);
+        console.error("Fetch error:", error);
     });
-
-}
+});
+});

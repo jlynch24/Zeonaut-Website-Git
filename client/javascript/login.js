@@ -2,6 +2,8 @@
 //When the button is pressed
 document.getElementById("login").addEventListener("submit", async (e) => {
 
+    
+
     /*      For refrence
             var data = { //IMPORTANT for fetch problem
             username: req.body.username,
@@ -15,11 +17,10 @@ document.getElementById("login").addEventListener("submit", async (e) => {
         password: document.getElementById("password").value
     };
 
-    /* Convert to system
-    if(!name || !author || !type || !level || !text) {
+    if(!email || !password) {
     alert("Please fill in all fields before submiting");
     return;
-} */
+} 
 
     //Sends the data to server.
     fetch("https://localhost:5001/login", {
