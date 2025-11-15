@@ -28,10 +28,11 @@ var services = function(app) {
 
         //Test for if the the things are inserted into the database.
         connection.query("INSERT INTO player SET ?", data, function(err) {
-            if(err) {
-                return res.send(JSON.stringify({msg:"ERROR : " + err}));
+            if(err) {   //They need to return as JSON, the format how the server was being send was wrong.
+                        //Incorrect for the frount end, therefore it didn't send. Stringify was the problem.
+                return res.json({ msg: "ERROR" + err});
             } else {
-                return res.send(JSON.stringify({msg:"SUCCESS"}));  
+                return res.json({ msg: "SUCCESS" });
             }
         })
     });

@@ -4,6 +4,7 @@
 console.log("file loaded");
 //Add a listener so that when the user clicks the submit button it dose something.
 //document.getElementById("signUpButton").addEventListener("click", function(e) {
+//Facilitates the clicking better.
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("signUpButton").addEventListener("click", function(e) {
     
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-
+    //Another problem was that collected data above and below was in different arrays of the same name.
     const collectedData = {
         email: email,
         username: username,
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Objects packed");
 
+    //Validation, no empty fields.
     if(!email || !username || !password) {
     alert("Please fill in all fields before submiting");
     return;
@@ -36,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
         //Make it post, link it to server, pack into a json object
         method: "POST", //Make this a POST fetch
         headers: { "Content-Type": "application/json"},    
-        body: JSON.stringify(playerData),
+        body: JSON.stringify(collectedData),
+        //THERE WAS NO PLAYER DATA, THERE WAS NEVER PLAYER DATA IT WAS COLLECTED DATA
     })
     .then(response => {
         console.log("Checking to see if the data is working.")
@@ -56,5 +59,5 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Error: " + error);
         console.error("Fetch error:", error);
     });
-});
+}); //It wasn't a signup issue mostly, it was a button issue.
 });
