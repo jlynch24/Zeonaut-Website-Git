@@ -36,6 +36,25 @@ var services = function(app) {
             }
         })
     });
+    //Now for the login, each user imput requires a new one, each fetch statement requires a new one.
+    app.post("/login", function(req, res) {
+
+        const email = req.body.email;
+        const password = req.body.password;
+
+        console.log("Login data", email, password); //Shows that it is logging, at least console wise.
+        const query = "SELECT * FROM player WHERE email = ? AND password = ?"; //The prompt to be given to the server.
+        connection.query(query, [email, password], function (error, results) {
+
+            if (error) { //If it dosen't word after that.
+              return res.json({ msg: "Not working" + error});
+            } else if (result.length === 0) { //No match.
+                return res.json({msg: "FAIL"})
+            } else { //Is match and code runs.
+                return res.json({ msg: "Logged in without issue."})
+            }
+        })
+    })
 
     
 }
