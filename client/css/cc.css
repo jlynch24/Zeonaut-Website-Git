@@ -1,0 +1,29 @@
+
+
+.titleBox {
+    font-size: 28px;
+    background-color: #f3952a;
+    padding: 20px;
+    margin: 20px auto;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+.descBox {
+    font-size: 16px;
+    background-color: #f3952a;
+    padding: 20px;
+    margin: 20px auto;
+    width: 60%
+}
+
+.ccposition {
+    display: flex;
+    gap: 20px; 
+}
+
+.boxStacker {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
