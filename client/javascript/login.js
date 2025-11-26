@@ -2,9 +2,10 @@
 //When the button is pressed
 
 //Fixed button and makes it actually click and log data
-document.addEventListener("DOMContentLoaded", function () {
+//document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById("login").addEventListener("submit", async (e) => {
+    document.getElementById("submit").addEventListener("click", async (e) => {
+        e.preventDefault();
 
     console.log("Login button chicked");
 
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Implement fix used for signup, assign the inputs to vars then pack them into a box.
 
     const email = document.getElementById("email").value;
-    const password = document.getElementById("password");
+    const password = document.getElementById("password").value;
 
     const collectedData = {
         email: email,
@@ -42,8 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
     })
     .then(data => {
-        console.log("Uploaded to server ", data);
-        if (data.msg === "SUCCESS", data) {
+        console.log("Uploaded to server ");
+        if (data.msg === "SUCCESS") { //Logs in the user properly, when saving data grab user id then send it.
+            localStorage.setItem("userID", data.userID); //https://www.w3schools.com/jsref/prop_win_localstorage.asp
             alert("Logged in successfully!");
             window.location.href = "/"; //Send data to main page, which will log them in.
         } else {
@@ -55,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 });
 
-});
+//});
 
 /* Nice to have, will work on if time is available. .then(data => {     //Sends the user back to index.html logged in, but only if they answer correctly.
         if (data) {

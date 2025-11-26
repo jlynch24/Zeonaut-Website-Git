@@ -48,10 +48,10 @@ var services = function(app) {
 
             if (error) { //If it dosen't word after that.
               return res.json({ msg: "Not working" + error});
-            } else if (result.length === 0) { //No match.
+            } else if (results.length === 0) { //No match.
                 return res.json({msg: "FAIL"})
             } else { //Is match and code runs.
-                return res.json({ msg: "Logged in without issue."})
+                return res.json({ msg: "SUCCESS", userID:results[0].player_id})
             }
         })
     })

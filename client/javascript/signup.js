@@ -7,6 +7,7 @@ console.log("file loaded");
 //Facilitates the clicking better.
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("signUpButton").addEventListener("click", function(e) {
+        e.preventDefault();
     
     console.log("button clicked");
 
