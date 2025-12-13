@@ -56,7 +56,58 @@ var services = function(app) {
         })
     })
 
+        // Do what I did for login for memonic
+    app.post("/memonic", function(req, res) {
+        const data = {  //Put the data in a box
+            player_id: req.body.player_id,
+            character_name: req.body.character_name,
+            body_energy: req.body.body_energy,
+            mind_energy: req.body.mind_energy,
+            spirit_energy: req.body.spirit_energy,
+            soul_energy: req.body.soul_energy
+        };
+    //Then insert // Character is keyword, needs quotes
+    const query = "INSERT INTO `character` SET ?";
+    connection.query(query, data, function(error, results) {
+        if (error) {
+            console.log("SQL ERROR:", error);
+            return res.json({ msg: "ERROR " + error });
+        }
+        console.log("Character created with ID:", results.insertId);
+        return res.json({ msg: "SUCCESS" });
+    });
+
+});
+    //Now the character sheet that was submitted, can be getted.
+    app.get("/get-character", function(req, res) {
+
+        const player_id = req.query.player_id //get the player_id of the logged in player.
+
+        //Check to see if the player id is actually being checked, if not inform me.
+        if (!player_id) {
+            return res.json({ msg: "Player ID isn't being recorded"})
+        }
+        //Actually select it with SQL code
+        const query = "SELECT * FROM `character` WHERE player_id = ? LIMIT 1"
+
+        //Get the data from the schema
+        connection.query(query, [player_id], function(err, result) {
+            if (err) {  //Check if working
+                console.log("Problem with getting the data from the base")
+            } else if (result.length === 0) { //Check unfilled imput
+                return res.json("Name required")
+            } else { //If it is working
+                return res.json({   //If it is working, go through
+                    msg: "SUCCESS",
+                    character: result[0]
+                });
+            }
+
+        })
+
+    })
+
     
-}
+};
 
 module.exports = services;

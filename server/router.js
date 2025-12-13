@@ -32,7 +32,13 @@ var router =function(app) {
     app.get('/login', function(req, res) {
         res.sendFile(path.join(__dirname + "/../client/genPages/login.html"))
     });
+
+    //Character Sheet Page
+    app.get('/charactersheet', function(req, res) {
+        res.sendFile(path.join(__dirname + "/../client/genPages/CharacterSheet.html"));
+    });
 };
+
 
 
 module.exports = router; //Before input you must export
