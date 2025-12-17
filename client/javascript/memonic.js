@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Form is being submitted");
 
     const collectedData = {
-        character_name: document.getElementById("character_name").value,
+        player_id: localStorage.getItem("userID"),
         body_energy: document.getElementById("body_energy").value,
         mind_energy: document.getElementById("mind_energy").value,
         spirit_energy: document.getElementById("spirit_energy").value,

@@ -71,3 +71,56 @@ a:visited {
     justify-content: center;
     align-items: center;
 }
+
+/* Styling for the character sheet */
+
+#sheet {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#character_name {
+    padding: 10px 40px;
+    border: 2px solid #cfc6ff;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.35);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Grid for stats */
+#sheet > div:not(#character_name) {
+    display: grid;
+    grid-template-columns: repeat(2, 140px);
+    gap: 15px;
+}
+
+/* Individual stat boxes */
+#sheet > div > div,
+#sheet div span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Stat container */
+#sheet > div > div {
+    border: 2px solid #cfc6ff;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* Numbers */
+#sheet span {
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+.white {
+    color: white;
+}

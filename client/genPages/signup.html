@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zuonaut TTRPG - Sign Up</title>
     <link rel="stylesheet" href="/client/css/index.css">
-    <script src="/client/javascript/signup.js" async></script>
+    <!--Defer fixes the issue-->
+    <script src="/client/javascript/signup.js" defer></script>
 </head>
 <body>
     <main>
@@ -22,27 +23,20 @@
             </div>
         </section>
         <section> <!--Sigh up-->
-            <h2>Don't have an accout?</h2>
-            <h1>Create one today!</h1>
+            <h2 class="white">Don't have an accout?</h2>
+            <h1 class="white">Create one today!</h1>
 
             <form>
-                <br>
-                <label>Your Email</label>
+                <label class="white">Your Email</label>
                 <input type="text" id="email" required>
-                <br><br>
-                
-                <br>
-                <label>Your Username</label>
+            
+                <label class="white">Your Username</label>
                 <input type="text" id="username" required>
-                <br><br>
 
-                <br>
-                <label>Your Password</label>
+                <label class="white">Your Password</label>
                 <input type="text" id="password" required> <!--Had the password ID this ENTIRE TIME and none of us noticed!-->
-                <br><br>
 
                 <button id="signUpButton">Sign Up</button> <!--Tried a more simpler thing than messing around with myclick.-->
-
             </form>
         </section>
     </main>

@@ -78,34 +78,57 @@ var services = function(app) {
     });
 
 });
-    //Now the character sheet that was submitted, can be getted.
-    app.get("/get-character", function(req, res) {
 
-        const player_id = req.query.player_id //get the player_id of the logged in player.
+//Get ALL characters
+app.get("/get-characters", function(req, res) {
 
-        //Check to see if the player id is actually being checked, if not inform me.
+    const player_id = req.query.player_id;
+
         if (!player_id) {
-            return res.json({ msg: "Player ID isn't being recorded"})
+            return res.json({ msg: "Player ID missing" });
         }
-        //Actually select it with SQL code
-        const query = "SELECT * FROM `character` WHERE player_id = ? LIMIT 1"
 
-        //Get the data from the schema
-        connection.query(query, [player_id], function(err, result) {
-            if (err) {  //Check if working
-                console.log("Problem with getting the data from the base")
-            } else if (result.length === 0) { //Check unfilled imput
-                return res.json("Name required")
-            } else { //If it is working
-                return res.json({   //If it is working, go through
-                    msg: "SUCCESS",
-                    character: result[0]
-                });
+        const query = "SELECT * FROM `character` WHERE player_id = ?";
+
+        connection.query(query, [player_id], function(err, results) {
+            if (err) {
+                return res.json({ msg: "ERROR" });
             }
 
-        })
+            return res.json({
+                msg: "SUCCESS",
+                characters: results
+            });
+        });
+    });
 
-    })
+//
+
+app.get("/get-character", function(req, res) {
+
+    const character_id = req.query.character_id;
+
+        if (!character_id) {
+            return res.json({ msg: "Character ID missing" });
+        }
+
+        const query = "SELECT * FROM `character` WHERE character_id = ? LIMIT 1";
+
+        connection.query(query, [character_id], function(err, result) {
+            if (err) {
+                return res.json({ msg: "ERROR" });
+            }
+
+            if (result.length === 0) {
+                return res.json({ msg: "NO_CHARACTER" });
+            }
+
+        return res.json({
+            msg: "SUCCESS",
+            character: result[0] 
+        });
+    });
+});
 
     
 };

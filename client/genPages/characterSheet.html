@@ -22,44 +22,24 @@
             </div>
         </section>
 
-        <!--The displayed character sheet-->
-        <!---<section class="sheet">
-            Make divs for the -->
-           <!-- <div class="name">
-                <span id="nameBox">Default Name</span>
-            </div>-->
-            <!--Lay out the stat blocks in two rows-->
-           <!-- <div class="energyRow">
-                <div class="energyBlock">
-                    <span>Body</span>
-                    <span id="energyBody">1</span>
-                </div>
-                <div class="energyRow">
-                    <span>Mind</span>
-                    <span id="energyMind">1</span>
-                </div>
-            
-            <div class="energyRow">
-                <div class="energyBlock">
-                    <span>Body</span>
-                    <span id="energySpirit">1</span>
-                </div>
-                <div class="energyRow">
-                    <span>Mind</span>
-                    <span id="energySoul">1</span>
-                </div>
-            </div> Make it run first before making it pretty--> 
-            <!--</div> -->
-            <!--Temp display without any styling for demo purposes-->
-            <div id="sheet">
-                <div id="character_name">Default Name</div>
+            <section>
+                <label class="white">Character</label>
+                <select id="characterSelect"></select>
 
-                <div>Body <span id="body_energy">1</span></div>
-                <div>Mind <span id="mind_energy">1</span></div>
-                <div>Spirit <span id="spirit_energy">1</span></div>
-                <div>Soul <span id="soul_energy">1</span></div>
+            <div id="sheet">
+
+            <div  id="character_name"></div>
+
+            <div class="stat-grid">
+                <div>Body <span id="body_energy"></span></div>
+                <div>Mind <span id="mind_energy"></span></div>
+                <div>Spirit <span id="spirit_energy"></span></div>
+                <div>Soul <span id="soul_energy"></span></div>
             </div>
 
+        </div>
+
+            <button id="switchCharacter">Switch Character</button>
         </section>
         </body>
     </main>
